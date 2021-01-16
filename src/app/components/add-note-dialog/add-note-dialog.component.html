@@ -1,0 +1,46 @@
+<div class="dialog">
+  <div class="dialog-header">
+    Dodaj notatkę
+  </div>
+  <div class="dialog-content">
+    <form class="dialog-content-form" [formGroup]="newNoteFormGroup" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput
+               [formControlName]="'title'"
+               autocomplete="off"
+               placeholder="Tytuł">
+        <mat-error *ngIf="newNoteFormGroup.get('title').hasError('required')">
+          To pole jest <strong>wymagane</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+               [formControlName]="'text'"
+               autocomplete="off"
+               placeholder="Treść">
+        <mat-error *ngIf="newNoteFormGroup.get('text').hasError('required')">
+          To pole jest <strong>wymagane</strong>
+        </mat-error>
+      </mat-form-field>
+      <div class="input-container">
+        <mat-checkbox
+          *ngIf="data.isPrivate"
+          [(ngModel)]="encrypted"
+          [ngModelOptions]="{standalone: true}"
+          color="primary">Zaszyfuj
+        </mat-checkbox>
+        <mat-form-field *ngIf="encrypted">
+          <input matInput
+                 [formControlName]="'password'"
+                 autocomplete="off"
+                 placeholder="Hasło"
+                 type="password">
+        </mat-form-field>
+      </div>
+      <div class="button-row">
+        <button mat-stroked-button type="button" (click)="onClose()" color="primary">Anuluj</button>
+        <button mat-raised-button type="submit" color="primary" [disabled]="newNoteFormGroup.invalid">Dodaj</button>
+      </div>
+    </form>
+  </div>
+</div>

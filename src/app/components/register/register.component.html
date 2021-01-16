@@ -1,0 +1,44 @@
+<div class="page-content">
+  <div class="header">Register</div>
+  <div class="form-wrapper">
+    <form class="register" *ngIf="!loading; else loadingSpinner"
+          [formGroup]="registerFormGroup" (ngSubmit)="onSubmit()">
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Username</mat-label>
+        <input matInput
+               [formControlName]="'username'"
+               autocomplete="off">
+        <mat-error *ngIf="registerFormGroup.get('username').hasError('required')">Required</mat-error>
+        <mat-error *ngIf="registerFormGroup.get('username').hasError('pattern')">At least 4 characters</mat-error>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Email</mat-label>
+        <input matInput
+               [formControlName]="'email'"
+               autocomplete="off">
+        <mat-error *ngIf="registerFormGroup.get('email').hasError('required')">Required</mat-error>
+        <mat-error *ngIf="registerFormGroup.get('email').hasError('pattern')">Invalid data</mat-error>
+      </mat-form-field>
+      <div class="input-container">
+        <mat-form-field hideRequiredMarker>
+          <mat-label>Password</mat-label>
+          <input matInput
+                 [formControlName]="'password'"
+                 autocomplete="off"
+                 type="password">
+          <mat-error *ngIf="registerFormGroup.get('password').hasError('required')">Required</mat-error>
+          <mat-error *ngIf="registerFormGroup.get('password').hasError('pattern')">At least 8 characters</mat-error>
+        </mat-form-field>
+        <div class="entropy-info" *ngIf="passwordDetails">Password is <span [ngClass]="'password-' + strength">{{strength}}</span>. (Entropy: {{entropy}})</div>
+      </div>
+      <div class="button-register">
+        <button mat-raised-button type="submit" color="primary" [disabled]="registerFormGroup.invalid">Register</button>
+      </div>
+    </form>
+  </div>
+  <ng-template #loadingSpinner class="spinner">
+    <div class="template-wrapper">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>

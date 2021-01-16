@@ -1,0 +1,72 @@
+.header {
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 0 0;
+  margin-bottom: 30px;
+}
+
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 100%;
+}
+
+.mat-form-field {
+  padding: 12px;
+  width: 400px;
+}
+
+.button-register {
+  margin-top: 50px;
+}
+
+.template-wrapper {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.entropy-info {
+  position: absolute;
+  bottom: -20px;
+  left: 12px;
+}
+
+.password-weak {
+  font-weight: 500;
+  color: red;
+}
+
+.password-medium {
+  font-weight: 500;
+  color: orange;
+}
+
+.password-strong {
+  font-weight: 500;
+  color: green;
+}
+

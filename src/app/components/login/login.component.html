@@ -1,0 +1,41 @@
+<div class="page-content">
+  <div class="header">Login</div>
+  <div class="form-wrapper" *ngIf="!tooManyAttempts; else waitingText">
+    <div *ngIf="error" class="error-message">
+      These login details are incorrect. Attempts left: {{attempts}}.
+    </div>
+    <form class="login" *ngIf="!loading; else loadingSpinner"
+          [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Username</mat-label>
+        <input matInput
+               [formControlName]="'username'"
+               autocomplete="off">
+        <mat-error *ngIf="loginFormGroup.get('username').hasError('required')">Required</mat-error>
+        <mat-error *ngIf="loginFormGroup.get('username').hasError('pattern')">At least 4 characters</mat-error>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Password</mat-label>
+        <input matInput
+               [formControlName]="'password'"
+               autocomplete="off"
+               type="password">
+        <mat-error *ngIf="loginFormGroup.get('password').hasError('required')">Required</mat-error>
+        <mat-error *ngIf="loginFormGroup.get('password').hasError('pattern')">At least 8 characters</mat-error>
+      </mat-form-field>
+      <div class="button-login">
+        <button mat-raised-button type="submit" color="primary" [disabled]="loginFormGroup.invalid">Login</button>
+      </div>
+    </form>
+  </div>
+  <ng-template #loadingSpinner class="spinner">
+    <div class="template-wrapper">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+  <ng-template #waitingText class="spinner">
+    <div class="error-message">
+      Too many attempts! Please wait {{counter}} second<span *ngIf="counter !== 1">s</span>.
+    </div>
+  </ng-template>
+</div>

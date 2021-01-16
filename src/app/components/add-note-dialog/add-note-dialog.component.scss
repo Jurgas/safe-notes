@@ -1,0 +1,45 @@
+.dialog {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dialog-header {
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  width: 80%;
+  border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+  text-align: center;
+}
+
+.dialog-content-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100px;
+}
+
+mat-form-field {
+  width: 200px;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 200px;
+}

@@ -1,0 +1,60 @@
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 0 0;
+  margin-bottom: 30px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.error-message {
+  text-align: center;
+  padding: 20px 50px;
+  color: red;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: #ffcccc;
+  margin: 10px 30px;
+  width: 500px;
+}
+
+.mat-form-field {
+  padding: 12px;
+  width: 400px;
+}
+
+.button-login {
+  margin-top: 50px;
+}
+
+.template-wrapper {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

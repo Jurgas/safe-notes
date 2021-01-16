@@ -1,0 +1,39 @@
+<div class="lists">
+  <div class="list-elem">
+    <div class="list-header">Notatki prywatne</div>
+    <button class="button-add" mat-raised-button (click)="addPrivateNote()">Dodaj</button>
+    <div class="list-content" *ngFor="let note of NOTES">
+      <div class="list-content-name">{{note.title}}
+        <div class="text-right" *ngIf="note.type === 'PUBLIC'">(publiczne)</div>
+      </div>
+      <div *ngIf="note.modified === null" class="list-content-elem">{{note.text}}</div>
+      <div *ngIf="note.modified !== null" class="list-content-elem">{{note.modified}}</div>
+      <div class="list-content-password" *ngIf="note.type === 'ENCRYPTED'">
+        <mat-form-field hideRequiredMarker>
+          <mat-label>Password</mat-label>
+          <input matInput
+                 autocomplete="off"
+                 type="text"
+                 (input)="decrypt(note, $event.target.value)">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="list-elem">
+    <div class="list-header">Pliki</div>
+    <button class="button-add" mat-raised-button (click)="filePicker.click()">Dodaj</button>
+    <input class="hidden-input" type="file" #filePicker (change)="addFile($event)">
+    <div class="list-content" *ngFor="let file of FILES">
+      <div class="list-content-name"></div>
+      <div class="list-content-elem"><a class="file" (click)="downloadFile(file)">{{file.name}}</a></div>
+    </div>
+  </div>
+  <div class="list-elem">
+    <div class="list-header">Notatki publiczne</div>
+    <button class="button-add" mat-raised-button (click)="addPublicNote()">Dodaj</button>
+    <div class="list-content" *ngFor="let note of PUBLIC_NOTES">
+      <div class="list-content-name">{{note.title}}</div>
+      <div class="list-content-elem">{{note.text}}</div>
+    </div>
+  </div>
+</div>

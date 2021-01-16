@@ -1,1 +1,106 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$header-color: #e7e7e7;
+$orange: #FFC7B1;
+$navbar-default: #B8B8CC;
+$navbar-active: #E1E0FF;
+$font-color: #F6FBFF;
+
+$colHighlight: #333333;
+$dropDown: false;
+.navbar-default {
+  background-color: $navbar-default;
+  border-color: $navbar-active;
+
+  .navbar-brand {
+    color: $font-color;
+
+    &:hover, &:focus {
+      color: $colHighlight;
+    }
+  }
+
+  .navbar-text {
+    color: $font-color;
+  }
+
+  .navbar-nav {
+    > li {
+      > a {
+        color: $font-color;
+
+        &:hover, &:focus {
+          color: $colHighlight;
+        }
+      }
+    }
+
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $navbar-active;
+      }
+    }
+
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $navbar-active;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: $navbar-active;
+
+    &:hover, &:focus {
+      background-color: $navbar-active;
+    }
+
+    .icon-bar {
+      background-color: $font-color;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $font-color;
+  }
+
+  .navbar-link {
+    color: $font-color;
+
+    &:hover {
+      color: $colHighlight;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $font-color;
+
+      &:hover, &:focus {
+        color: $colHighlight;
+      }
+    }
+
+    > .active {
+      > a, > a:hover, > a:focus, {
+        color: $colHighlight;
+        background-color: $navbar-active;
+      }
+    }
+  }
+}
+
